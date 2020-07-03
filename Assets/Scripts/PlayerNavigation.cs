@@ -7,6 +7,7 @@ public class PlayerNavigation : MonoBehaviour
 {
     [SerializeField] Transform target;
 
+    Ray lastRay;
 
     NavMeshAgent playerNav;
 
@@ -23,5 +24,10 @@ public class PlayerNavigation : MonoBehaviour
         {
             playerNav.SetDestination(target.position);
         }
+        if (Input.GetMouseButtonDown(0))
+        {
+            lastRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+        }
+        Debug.DrawRay(lastRay.origin, lastRay.direction * 100);
     }
 }
