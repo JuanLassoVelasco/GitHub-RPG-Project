@@ -1,14 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class PlayerNavigation : MonoBehaviour
 {
-    [SerializeField] Transform target;
-
-    Ray lastRay;
-
     NavMeshAgent playerNav;
 
     // Start is called before the first frame update
@@ -20,14 +17,22 @@ public class PlayerNavigation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(target != null)
-        {
-            playerNav.SetDestination(target.position);
-        }
         if (Input.GetMouseButtonDown(0))
         {
-            lastRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+            MoveToCursor();
         }
-        Debug.DrawRay(lastRay.origin, lastRay.direction * 100);
+        
+    }
+
+    private void MoveToCursor()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+
+        bool hasHit = Physics.Raycast(ray, out hit);
+        if (hasHit)
+        {
+            playerNav.SetDestination(hit.point);
+        }
     }
 }
