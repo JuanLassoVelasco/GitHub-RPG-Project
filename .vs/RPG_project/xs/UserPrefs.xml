@@ -1,5 +1,5 @@
 ﻿<Properties StartupConfiguration="{66A2329B-3B71-69FD-425B-542C3BE64BC9}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/FollowCamera.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PlayerNavigation.cs">
     <Files>
       <File FileName="Assets/Scripts/PlayerNavigation.cs" Line="8" Column="2" />
       <File FileName="Assets/Scripts/FollowCamera.cs" Line="13" Column="46" />
@@ -10,7 +10,7 @@
           <Node name="RPG_project" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="FollowCamera.cs" selected="True" />
+                <Node name="PlayerNavigation.cs" selected="True" />
               </Node>
             </Node>
           </Node>
