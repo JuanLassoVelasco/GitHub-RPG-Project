@@ -86,6 +86,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 081ac631a1f3642caac7cbe93f17dc65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  continuousRayTimeInterval: 0.2
 --- !u!195 &639957147
 NavMeshAgent:
   m_ObjectHideFlags: 0
