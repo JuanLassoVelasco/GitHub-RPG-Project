@@ -294,7 +294,9 @@
 /define:CSHARP_7_3_OR_NEWER
 "Assets/Scripts/Combat/CombatTarget.cs"
 "Assets/Scripts/Combat/Fighter.cs"
-"Assets/Scripts/Combat/TargetCom.cs"
+"Assets/Scripts/Combat/Health.cs"
 "Assets/Scripts/Control/PlayerController.cs"
+"Assets/Scripts/Core/ActionScheduler.cs"
 "Assets/Scripts/Core/FollowCamera.cs"
+"Assets/Scripts/Core/IAction.cs"
 "Assets/Scripts/Movement/Mover.cs"
