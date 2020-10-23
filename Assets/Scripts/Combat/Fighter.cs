@@ -13,7 +13,16 @@ namespace RPG.Combat
         [SerializeField] float weaponDamage = 5f;
 
         Health target;
+        Animator animator;
+        Mover mover;
+
         float timeSinceLastAttack = 0;
+
+        private void Start()
+        {
+            animator = GetComponent<Animator>();
+            mover = GetComponent<Mover>();
+        }
 
         private void Update()
         {
@@ -26,15 +35,16 @@ namespace RPG.Combat
                     float distance = Vector3.Distance(transform.position, target.transform.position);
                     if (distance > weaponRange)
                     {
-                        GetComponent<Mover>().MoveTo(target.transform.position);
+                        mover.MoveTo(target.transform.position);
                     }
                     else
                     {
-                        GetComponent<Mover>().Cancel();
+                        mover.Cancel();
                         AttackBehavior();
                     }
                 }
             }
+
         }
 
         private void AttackBehavior()
@@ -43,7 +53,8 @@ namespace RPG.Combat
             if (timeSinceLastAttack >= timeBetweenAttacks)
             {
                 // This will trigger the Hit() event
-                GetComponent<Animator>().SetTrigger("attack");
+                animator.ResetTrigger("stopAttack");
+                animator.SetTrigger("attack");
                 timeSinceLastAttack = 0;
                 
             }
@@ -52,7 +63,9 @@ namespace RPG.Combat
         // Animation Event
         void Hit()
         {
-            target.TakeDamage(weaponDamage);
+            if (target != null) {
+                target.TakeDamage(weaponDamage);
+            }
         }
 
         public void Attack(CombatTarget combatTarget)
@@ -63,7 +76,8 @@ namespace RPG.Combat
 
         public void Cancel()
         {
-            GetComponent<Animator>().SetTrigger("stopAttack");
+            animator.ResetTrigger("attack");
+            animator.SetTrigger("stopAttack");
             target = null;
         }
 
