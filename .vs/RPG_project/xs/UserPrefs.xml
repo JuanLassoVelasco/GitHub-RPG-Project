@@ -1,10 +1,12 @@
 ﻿<Properties StartupConfiguration="{66A2329B-3B71-69FD-425B-542C3BE64BC9}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Control/PlayerController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Control/AIController.cs">
     <Files>
-      <File FileName="Assets/Scripts/Control/AIController.cs" Line="22" Column="41" />
-      <File FileName="Assets/Scripts/Control/PlayerController.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Movement/Mover.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Combat/Fighter.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Control/AIController.cs" Line="18" Column="1" />
+      <File FileName="Assets/Scripts/Control/PlayerController.cs" Line="53" Column="14" />
+      <File FileName="Assets/Scripts/Movement/Mover.cs" />
+      <File FileName="Assets/Scripts/Combat/Fighter.cs" />
+      <File FileName="Assets/Scripts/Core/ActionScheduler.cs" />
+      <File FileName="Assets/Scripts/Control/ControlPath.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -14,7 +16,7 @@
               <Node name="Scripts" expanded="True">
                 <Node name="Combat" expanded="True" />
                 <Node name="Control" expanded="True">
-                  <Node name="PlayerController.cs" selected="True" />
+                  <Node name="AIController.cs" selected="True" />
                 </Node>
                 <Node name="Core" expanded="True" />
                 <Node name="Movement" expanded="True" />
@@ -27,7 +29,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="9546d659-d940-4c06-9dee-ac65ba2f6861" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="da94d9ff-ef03-4679-8738-98f6f6072c2a" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

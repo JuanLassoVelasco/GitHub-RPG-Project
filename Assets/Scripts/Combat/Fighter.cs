@@ -16,7 +16,7 @@ namespace RPG.Combat
         Animator animator;
         Mover mover;
 
-        float timeSinceLastAttack = 0;
+        float timeSinceLastAttack = Mathf.Infinity;
 
         private void Start()
         {
@@ -35,6 +35,7 @@ namespace RPG.Combat
                     float distance = Vector3.Distance(transform.position, target.transform.position);
                     if (distance > weaponRange)
                     {
+                        animator.SetTrigger("stopAttack");
                         mover.MoveTo(target.transform.position);
                     }
                     else
@@ -68,7 +69,7 @@ namespace RPG.Combat
             }
         }
 
-        public void Attack(CombatTarget combatTarget)
+        public void Attack(GameObject combatTarget)
         {
             GetComponent<ActionScheduler>().StartAction(this);
             target = combatTarget.GetComponent<Health>();

@@ -5,6 +5,7 @@ using UnityEngine.AI;
 using RPG.Movement;
 using System;
 using RPG.Combat;
+using RPG.Core;
 
 namespace RPG.Control
 {
@@ -13,17 +14,21 @@ namespace RPG.Control
 
         Fighter fighter;
         Mover mover;
+        Health playerHealth;
 
         // Start is called before the first frame update
         void Start()
         {
             fighter = GetComponent<Fighter>();
             mover = GetComponent<Mover>();
+            playerHealth = GetComponent<Health>();
         }
 
         // Update is called once per frame
         void Update()
         {
+            if (playerHealth.IsDead()) return;
+
             if (InteractWithCombat()) return;
             if (InteractWithMovement()) return;
             print("nothing to do");
@@ -35,11 +40,13 @@ namespace RPG.Control
             foreach (RaycastHit hit in hits)
             {
                 CombatTarget target = hit.collider.GetComponentInParent<CombatTarget>();
+                if (target == null) continue;
+
                 if (target != null)
                 {
-                    if (Input.GetMouseButtonDown(0))
+                    if (Input.GetMouseButton(0))
                     {
-                        fighter.Attack(target);
+                        fighter.Attack(target.gameObject);
                     }
                     return true;
                 }
