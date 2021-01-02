@@ -3,6 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{66A2329B-3B71-69FD-425B-542C3BE64BC9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boxophobic.Utils.Scripts", "Boxophobic.Utils.Scripts.csproj", "{CC6CC4D9-7477-E3AF-965C-009C61F86259}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boxophobic.Utils.Editor", "Boxophobic.Utils.Editor.csproj", "{BBFC5314-A105-A0F7-E38F-86BCAD5990F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boxophobic.SkyboxCubemapExtended.Editor", "Boxophobic.SkyboxCubemapExtended.Editor.csproj", "{58130978-2966-461A-59CC-505151C4C663}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +19,18 @@ Global
 		{66A2329B-3B71-69FD-425B-542C3BE64BC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66A2329B-3B71-69FD-425B-542C3BE64BC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66A2329B-3B71-69FD-425B-542C3BE64BC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC6CC4D9-7477-E3AF-965C-009C61F86259}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC6CC4D9-7477-E3AF-965C-009C61F86259}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC6CC4D9-7477-E3AF-965C-009C61F86259}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC6CC4D9-7477-E3AF-965C-009C61F86259}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBFC5314-A105-A0F7-E38F-86BCAD5990F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBFC5314-A105-A0F7-E38F-86BCAD5990F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBFC5314-A105-A0F7-E38F-86BCAD5990F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBFC5314-A105-A0F7-E38F-86BCAD5990F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58130978-2966-461A-59CC-505151C4C663}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58130978-2966-461A-59CC-505151C4C663}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58130978-2966-461A-59CC-505151C4C663}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58130978-2966-461A-59CC-505151C4C663}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

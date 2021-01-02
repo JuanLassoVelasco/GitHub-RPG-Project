@@ -15,6 +15,7 @@ namespace RPG.Control
         [SerializeField] ControlPath controlPath;
         [SerializeField] float waypointTolerance = 1f;
         [SerializeField] float waypointDwellTime = 5f;
+        [SerializeField] float patrolSpeedFraction = 0.2f;
 
         GameObject player;
         Fighter enemyFighter;
@@ -86,7 +87,7 @@ namespace RPG.Control
                 nextPostion = GetCurrentWaypoint();
             }
 
-            enemyMover.StartMovement(nextPostion);
+            enemyMover.StartMovement(nextPostion, patrolSpeedFraction);
         }
 
         private Vector3 GetCurrentWaypoint()

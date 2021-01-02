@@ -36,7 +36,7 @@ namespace RPG.Combat
                     if (distance > weaponRange)
                     {
                         animator.SetTrigger("stopAttack");
-                        mover.MoveTo(target.transform.position);
+                        mover.MoveTo(target.transform.position, 1f);
                     }
                     else
                     {

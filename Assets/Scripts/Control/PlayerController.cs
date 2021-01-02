@@ -68,7 +68,7 @@ namespace RPG.Control
             {
                 if (Input.GetMouseButton(0))
                 {
-                    mover.StartMovement(hit.point);
+                    mover.StartMovement(hit.point, 1f);
                 }
             }
             return hasHit;
