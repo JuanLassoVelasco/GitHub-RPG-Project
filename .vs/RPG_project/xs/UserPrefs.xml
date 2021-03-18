@@ -1,25 +1,23 @@
 ﻿<Properties StartupConfiguration="{66A2329B-3B71-69FD-425B-542C3BE64BC9}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Movement/Mover.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Combat/Projectile.cs">
     <Files>
-      <File FileName="Assets/Scripts/Control/AIController.cs" Line="90" Column="70" />
-      <File FileName="Assets/Scripts/Control/PlayerController.cs" Line="73" Column="14" />
-      <File FileName="Assets/Scripts/Movement/Mover.cs" Line="28" Column="13" />
-      <File FileName="Assets/Scripts/Combat/Fighter.cs" Line="39" Column="67" />
-      <File FileName="Assets/Scripts/Core/ActionScheduler.cs" />
-      <File FileName="Assets/Scripts/Control/ControlPath.cs" />
+      <File FileName="Assets/Scripts/Combat/Projectile.cs" Line="15" Column="55" />
+      <File FileName="Assets/Scripts/Combat/WeaponPickup.cs" />
+      <File FileName="Assets/Scripts/Combat/Fighter.cs" />
+      <File FileName="Assets/Scripts/Combat/Weapon.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="RPG_project" expanded="True">
-            <Node name="Assets" expanded="True">
+            <Node name="Assets" expanded="True" selected="True">
               <Node name="Scripts" expanded="True">
+                <Node name="Cinematics" expanded="True" />
                 <Node name="Combat" expanded="True" />
-                <Node name="Control" expanded="True" />
                 <Node name="Core" expanded="True" />
-                <Node name="Movement" expanded="True">
-                  <Node name="Mover.cs" selected="True" />
-                </Node>
+                <Node name="Movement" expanded="True" />
+                <Node name="Saving" expanded="True" />
+                <Node name="SceneManagement" expanded="True" />
               </Node>
             </Node>
           </Node>
@@ -29,7 +27,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="30d2ab41-4e38-44f3-afb2-44d4e18c760d" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="a6008206-81a0-409d-a6c8-472bcc95e88a" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

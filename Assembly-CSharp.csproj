@@ -56,16 +56,29 @@
     <Analyzer Include="/Applications/Visual Studio.app/Contents/Resources/lib/monodevelop/AddIns/MonoDevelop.Unity/Analyzers/Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets/Scripts/Cinematics/CinematicTrigger.cs" />
     <Compile Include="Assets/Scripts/Movement/Mover.cs" />
+    <Compile Include="Assets/Scripts/Saving/ISaveable.cs" />
     <Compile Include="Assets/Scripts/Combat/CombatTarget.cs" />
+    <Compile Include="Assets/Scripts/Combat/Weapon.cs" />
+    <Compile Include="Assets/Scripts/SceneManagement/Fader.cs" />
+    <Compile Include="Assets/Scripts/Cinematics/CinematicControlRemover.cs" />
     <Compile Include="Assets/Scripts/Core/Health.cs" />
     <Compile Include="Assets/Scripts/Core/FollowCamera.cs" />
     <Compile Include="Assets/Scripts/Control/AIController.cs" />
+    <Compile Include="Assets/Scripts/Core/PersistentObjectsSpawner.cs" />
+    <Compile Include="Assets/Scripts/Saving/SavingSystem.cs" />
     <Compile Include="Assets/Scripts/Control/ControlPath.cs" />
+    <Compile Include="Assets/Scripts/Saving/SerializableVector3.cs" />
+    <Compile Include="Assets/Scripts/Saving/SaveableEntity.cs" />
     <Compile Include="Assets/Scripts/Control/PlayerController.cs" />
     <Compile Include="Assets/Scripts/Core/IAction.cs" />
+    <Compile Include="Assets/Scripts/SceneManagement/Portal.cs" />
     <Compile Include="Assets/Scripts/Core/ActionScheduler.cs" />
+    <Compile Include="Assets/Scripts/SceneManagement/SavingWrapper.cs" />
     <Compile Include="Assets/Scripts/Combat/Fighter.cs" />
+    <Compile Include="Assets/Scripts/Combat/WeaponPickup.cs" />
+    <Compile Include="Assets/Scripts/Combat/Projectile.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets/Asset Packs/Synty - Polygon Student Sample/README - Usage Rights for these assets.txt" />
@@ -617,6 +630,9 @@
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Cinemachine">
+      <HintPath>Library/ScriptAssemblies/Cinemachine.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.VSCode.Editor">
       <HintPath>Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
@@ -632,6 +648,9 @@
     <Reference Include="Unity.Rider.Editor">
       <HintPath>Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="com.unity.cinemachine.editor">
+      <HintPath>Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.VisualStudio.Editor">
       <HintPath>Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
     </Reference>
@@ -640,12 +659,6 @@
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Cinemachine">
-      <HintPath>Library/ScriptAssemblies/Cinemachine.dll</HintPath>
-    </Reference>
-    <Reference Include="com.unity.cinemachine.editor">
-      <HintPath>Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
