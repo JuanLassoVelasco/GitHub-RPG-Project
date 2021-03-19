@@ -1,11 +1,13 @@
 ﻿<Properties StartupConfiguration="{66A2329B-3B71-69FD-425B-542C3BE64BC9}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Core/ImpactCleaner.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Resources/Experience.cs">
     <Files>
-      <File FileName="Assets/Scripts/Combat/Projectile.cs" Line="78" Column="6" />
-      <File FileName="Assets/Scripts/Combat/WeaponPickup.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Combat/Fighter.cs" Line="113" Column="10" />
-      <File FileName="Assets/Scripts/Combat/Weapon.cs" Line="21" Column="10" />
-      <File FileName="Assets/Scripts/Combat/ImpactCleaner.cs" Line="25" Column="6" />
+      <File FileName="Assets/Scripts/Stats/BaseStats.cs" Line="25" Column="1" />
+      <File FileName="Assets/Scripts/Stats/NewFile.txt" Line="1" Column="20" />
+      <File FileName="Assets/Scripts/Stats/Progression.cs" Line="18" Column="74" />
+      <File FileName="Assets/Scripts/Core/Health.cs" Line="39" Column="54" />
+      <File FileName="Assets/Scripts/Combat/EnemyHealthDisplay.cs" Line="29" Column="38" />
+      <File FileName="Assets/Scripts/Combat/Fighter.cs" Line="87" Column="98" />
+      <File FileName="Assets/Scripts/Resources/Experience.cs" Line="5" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -16,12 +18,14 @@
                 <Node name="Cinematics" expanded="True" />
                 <Node name="Combat" expanded="True" />
                 <Node name="Control" expanded="True" />
-                <Node name="Core" expanded="True">
-                  <Node name="ImpactCleaner.cs" selected="True" />
-                </Node>
+                <Node name="Core" expanded="True" />
                 <Node name="Movement" expanded="True" />
+                <Node name="Resources" expanded="True">
+                  <Node name="Experience.cs" selected="True" />
+                </Node>
                 <Node name="Saving" expanded="True" />
                 <Node name="SceneManagement" expanded="True" />
+                <Node name="Stats" expanded="True" />
               </Node>
             </Node>
           </Node>

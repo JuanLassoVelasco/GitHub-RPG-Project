@@ -11,6 +11,14 @@ namespace RPG.Combat
         [SerializeField] float respawnTime = 5;
 
         Fighter player = null;
+        BoxCollider boxCollider = null;
+        int childCount = 0;
+
+        private void Start()
+        {
+            boxCollider = gameObject.GetComponent<BoxCollider>();
+            childCount = gameObject.transform.childCount;
+        }
 
         private void OnTriggerEnter(Collider other)
         {
@@ -24,18 +32,17 @@ namespace RPG.Combat
 
         private IEnumerator HideForSeconds(float hideTime)
         {
-            HidePickup();
+            ShowPickup(false);
             yield return new WaitForSeconds(hideTime);
-            //ShowPickup();
+            ShowPickup(true);
         }
 
-        private void HidePickup()
+        private void ShowPickup(bool isShown)
         {
-            BoxCollider boxCollider = gameObject.GetComponent<BoxCollider>();
-            boxCollider.enabled = false;
-            for (int i = 0; i < gameObject.transform.childCount; i++)
+            boxCollider.enabled = isShown;
+            for (int i = 0; i < childCount; i++)
             {
-                transform.GetChild(i).gameObject.SetActive(false);
+                transform.GetChild(i).gameObject.SetActive(isShown);
             }
         }
     }

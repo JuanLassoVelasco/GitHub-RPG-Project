@@ -1,15 +1,23 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using RPG.Saving;
+using RPG.Stats;
+using RPG.Core;
 
-namespace RPG.Core
+namespace RPG.Resources
 {
     public class Health : MonoBehaviour, ISaveable
     {
         [SerializeField] float healthPoints = 100f;
 
+        GameObject attacker;
+        float maxHealth;
         bool isDead = false;
+
+        private void Awake()
+        {
+            healthPoints = gameObject.GetComponent<BaseStats>().GetHealth();
+            maxHealth = healthPoints;
+        }
 
         public bool IsDead()
         {
@@ -24,8 +32,15 @@ namespace RPG.Core
             }
         }
 
-        public void TakeDamage(float damage)
+        public float GetPercentHealth()
         {
+            return 100 * (healthPoints / maxHealth);
+        }
+
+        public void TakeDamage(GameObject instigator, float damage)
+        {
+            attacker = instigator;
+
             if (healthPoints != 0)
             {
                 healthPoints = Mathf.Max(healthPoints - damage, 0);
@@ -40,6 +55,9 @@ namespace RPG.Core
                 GetComponent<Animator>().SetTrigger("die");
                 GetComponent<ActionScheduler>().CancelCurrentAction();
                 transform.GetComponent<CapsuleCollider>().enabled = false;
+
+                float xpReward = GetComponent<BaseStats>().GetExperienceReward();
+                attacker.GetComponent<Experience>().GainExperience(xpReward);
             }
         }
 

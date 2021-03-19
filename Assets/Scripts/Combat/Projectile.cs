@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using RPG.Core;
+using RPG.Resources;
 
 namespace RPG.Combat
 {
@@ -15,6 +15,7 @@ namespace RPG.Combat
         [SerializeField] bool isHoming = false;
 
         Health target;
+        GameObject instigator;
         BoxCollider boxCollider;
 
         float damage = 0;
@@ -44,7 +45,7 @@ namespace RPG.Combat
         private void OnTriggerEnter(Collider other)
         {
             if (other.GetComponent<Health>() != target) return;
-            target.TakeDamage(damage);
+            target.TakeDamage(instigator, damage);
             if (hitFX != null)
             {
                 Instantiate(hitFX, this.transform.position, Quaternion.identity);
@@ -61,10 +62,11 @@ namespace RPG.Combat
             Destroy(this.gameObject, lifeTimeAfterDestroy);
         }
 
-        public void SetTarget(Health target, float damage)
+        public void SetTarget(Health target, GameObject instigator, float damage)
         {
             this.target = target;
             this.damage = damage;
+            this.instigator = instigator;
 
             Destroy(this.gameObject, maxLifeTime);
         }

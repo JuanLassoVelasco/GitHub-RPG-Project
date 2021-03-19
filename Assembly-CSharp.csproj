@@ -63,7 +63,7 @@
     <Compile Include="Assets/Scripts/Combat/Weapon.cs" />
     <Compile Include="Assets/Scripts/SceneManagement/Fader.cs" />
     <Compile Include="Assets/Scripts/Cinematics/CinematicControlRemover.cs" />
-    <Compile Include="Assets/Scripts/Core/Health.cs" />
+    <Compile Include="Assets/Scripts/Resources/Health.cs" />
     <Compile Include="Assets/Scripts/Core/FollowCamera.cs" />
     <Compile Include="Assets/Scripts/Control/AIController.cs" />
     <Compile Include="Assets/Scripts/Combat/WeaponPickup.cs" />
@@ -80,6 +80,12 @@
     <Compile Include="Assets/Scripts/Combat/Projectile.cs" />
     <Compile Include="Assets/Scripts/Combat/Fighter.cs" />
     <Compile Include="Assets/Scripts/Core/ImpactCleaner.cs" />
+    <Compile Include="Assets/Scripts/Stats/BaseStats.cs" />
+    <Compile Include="Assets/Scripts/Stats/CharacterClass.cs" />
+    <Compile Include="Assets/Scripts/Stats/Progression.cs" />
+    <Compile Include="Assets/Scripts/Resources/HealthDisplay.cs" />
+    <Compile Include="Assets/Scripts/Combat/EnemyHealthDisplay.cs" />
+    <Compile Include="Assets/Scripts/Resources/Experience.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets/Asset Packs/Synty - Polygon Student Sample/README - Usage Rights for these assets.txt" />

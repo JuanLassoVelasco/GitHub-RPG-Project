@@ -1,10 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using RPG.Movement;
 using RPG.Core;
-using System;
 using RPG.Saving;
+using RPG.Resources;
 
 namespace RPG.Combat
 {
@@ -56,6 +54,11 @@ namespace RPG.Combat
 
         }
 
+        public Health GetCurrentTarget()
+        {
+            return target;
+        }
+
         public void EquipWeapon(Weapon weapon)
         {
             if (weapon == null) return;
@@ -81,11 +84,11 @@ namespace RPG.Combat
             if (target == null) return;
             if (currentWeapon.HasProjectile())
             {
-                currentWeapon.LaunchProjectile(rightHandTransform, leftHandTransform, target);
+                currentWeapon.LaunchProjectile(rightHandTransform, leftHandTransform, gameObject, target);
             }
             else
             {
-                target.TakeDamage(currentWeapon.GetWeaponDamage());
+                target.TakeDamage(gameObject, currentWeapon.GetWeaponDamage());
             }
         }
 
@@ -117,7 +120,7 @@ namespace RPG.Combat
         public void RestoreState(object state)
         {
             string weaponName = (string)state;
-            Weapon weapon = Resources.Load<Weapon>(weaponName);
+            Weapon weapon = UnityEngine.Resources.Load<Weapon>(weaponName);
             EquipWeapon(weapon);
         }
     }
