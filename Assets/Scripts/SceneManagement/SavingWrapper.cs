@@ -13,7 +13,12 @@ namespace RPG.SceneManagement
         const string defaultSaveFile = "save";
         SavingSystem savingSystem;
 
-        IEnumerator Start()
+        private void Awake()
+        {
+            StartCoroutine(LoadLastScene());
+        }
+
+        private IEnumerator LoadLastScene()
         {
             Fader fader = FindObjectOfType<Fader>();
             fader.FadeOutImmediate();
@@ -42,16 +47,19 @@ namespace RPG.SceneManagement
 
         private void Delete()
         {
+            print("Deleted Save File");
             savingSystem.Delete(defaultSaveFile);
         }
 
         public void Save()
         {
+            print("Saving Game");
             savingSystem.Save(defaultSaveFile);
         }
 
         public void Load()
         {
+            print("Loading Game");
             savingSystem.Load(defaultSaveFile);
         }
     }

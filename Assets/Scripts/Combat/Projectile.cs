@@ -29,17 +29,12 @@ namespace RPG.Combat
         // Update is called once per frame
         void Update()
         {
-            if (target != null & isHoming)
+            if (target != null & isHoming & target.IsDead() == false)
             {
                 gameObject.transform.LookAt(GetAimLocation());
             }
 
             gameObject.transform.Translate(Vector3.forward * projectileSpeed * Time.deltaTime);
-
-            if (target.IsDead())
-            {
-                target = null;
-            }
         }
 
         private void OnTriggerEnter(Collider other)

@@ -1427,25 +1427,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1037301727}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1095577180 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1278591606588737159, guid: 7d1383968f5414b04b76739699b9b3b4,
-    type: 3}
-  m_PrefabInstance: {fileID: 1439985096}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1095577194
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1095577180}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce0a5f1439efb47eda33edf3e95ca2e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  experiencePoints: 0
 --- !u!1 &1129008951
 GameObject:
   m_ObjectHideFlags: 0
@@ -1714,7 +1695,12 @@ PrefabInstance:
     - target: {fileID: 1586517363271595459, guid: 7d1383968f5414b04b76739699b9b3b4,
         type: 3}
       propertyPath: startingLevel
-      value: 3
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7366161943479079676, guid: 7d1383968f5414b04b76739699b9b3b4,
+        type: 3}
+      propertyPath: experiencePoints
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8590311149959807188, guid: 7d1383968f5414b04b76739699b9b3b4,
         type: 3}
@@ -1732,6 +1718,11 @@ PrefabInstance:
         type: 3}
       propertyPath: defaultWeaponName
       value: UnarmedStrike
+      objectReference: {fileID: 0}
+    - target: {fileID: 8872569506113053820, guid: 7d1383968f5414b04b76739699b9b3b4,
+        type: 3}
+      propertyPath: healthPoints
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8347520723870325418, guid: 7d1383968f5414b04b76739699b9b3b4, type: 3}

@@ -17,7 +17,7 @@ namespace RPG.Combat
             player = GameObject.FindWithTag("Player").GetComponent<Fighter>();
         }
 
-        void Update()
+        private void Update()
         {
             enemyHealth = player.GetCurrentTarget();
             if (enemyHealth != null)
