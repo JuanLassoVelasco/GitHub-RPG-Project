@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: UnarmedStrike
   m_EditorClassIdentifier: 
   weaponDamage: 5
+  percentageBonus: 0
   weaponRange: 2
   animatorOveride: {fileID: 0}
   equippedPrefab: {fileID: 0}

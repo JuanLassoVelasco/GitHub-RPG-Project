@@ -29,15 +29,18 @@ namespace RPG.Control
         float timeSinceLastSawPlayer = Mathf.Infinity;
         float timeSpentAtWaypoint = 0;
 
-        // Start is called before the first frame update
-        void Start()
+        private void Awake()
         {
             player = GameObject.FindWithTag("Player");
             enemyFighter = GetComponent<Fighter>();
             enemyHealth = GetComponent<Health>();
             enemyMover = GetComponent<Mover>();
             actionScheduler = GetComponent<ActionScheduler>();
+        }
 
+        // Start is called before the first frame update
+        void Start()
+        {
             guardPosition = transform.position;
         }
 

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Bow
   m_EditorClassIdentifier: 
   weaponDamage: 8
+  percentageBonus: 0
   weaponRange: 10
   animatorOveride: {fileID: 22100000, guid: f6c30dcf950b6484b955c0bd251973c6, type: 2}
   equippedPrefab: {fileID: 2987835592658481321, guid: 524dda4b779984b3081aa33d3809e9ba,

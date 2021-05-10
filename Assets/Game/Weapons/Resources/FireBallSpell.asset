@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: FireBallSpell
   m_EditorClassIdentifier: 
   weaponDamage: 10
+  percentageBonus: 0
   weaponRange: 10
   animatorOveride: {fileID: 22100000, guid: b78349e76539644df952506bd7f1f17a, type: 2}
   equippedPrefab: {fileID: 0}

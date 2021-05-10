@@ -17,6 +17,6 @@ public class LevelDisplay : MonoBehaviour
 
     void Update()
     {
-        levelText.text = "Level: " + playerStats.CalculateLevel().ToString();
+        levelText.text = "Level: " + playerStats.GetLevel().ToString();
     }
 }

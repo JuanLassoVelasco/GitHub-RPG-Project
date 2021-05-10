@@ -3,10 +3,12 @@ using RPG.Movement;
 using RPG.Core;
 using RPG.Saving;
 using RPG.Resources;
+using RPG.Stats;
+using System.Collections.Generic;
 
 namespace RPG.Combat
 {
-    public class Fighter : MonoBehaviour, IAction, ISaveable
+    public class Fighter : MonoBehaviour, IAction, ISaveable, IModifierProvider
     {
         [SerializeField] float timeBetweenAttacks = 1f;
         [SerializeField] Transform rightHandTransform = null;
@@ -26,7 +28,7 @@ namespace RPG.Combat
             mover = GetComponent<Mover>();
             if (currentWeapon == null)
             {
-                EquipWeapon(defaultWeapon);
+                currentWeapon = defaultWeapon;
             }
         }
 
@@ -82,13 +84,15 @@ namespace RPG.Combat
         void Hit()
         {
             if (target == null) return;
+
+            float calculatedDamage = GetComponent<BaseStats>().GetCalculatedStat(Stat.Damage);
             if (currentWeapon.HasProjectile())
             {
-                currentWeapon.LaunchProjectile(rightHandTransform, leftHandTransform, gameObject, target);
+                currentWeapon.LaunchProjectile(rightHandTransform, leftHandTransform, gameObject, target, calculatedDamage);
             }
             else
             {
-                target.TakeDamage(gameObject, currentWeapon.GetWeaponDamage());
+                target.TakeDamage(gameObject, calculatedDamage);
             }
         }
 
@@ -122,6 +126,22 @@ namespace RPG.Combat
             string weaponName = (string)state;
             Weapon weapon = UnityEngine.Resources.Load<Weapon>(weaponName);
             EquipWeapon(weapon);
+        }
+
+        public IEnumerable<float> GetAdditiveModifiers(Stat stat)
+        {
+            if (stat == Stat.Damage)
+            {
+                yield return currentWeapon.GetWeaponDamage();
+            }
+        }
+
+        public IEnumerable<float> GetPercentageModifiers(Stat stat)
+        {
+            if (stat == Stat.Damage)
+            {
+                yield return currentWeapon.GetPercentageBonus();
+            }
         }
     }
 }

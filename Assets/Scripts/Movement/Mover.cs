@@ -18,7 +18,7 @@ namespace RPG.Movement
         Health health;
 
         // Start is called before the first frame update
-        void Start()
+        void Awake()
         {
             navMeshAgent = GetComponent<NavMeshAgent>();
             health = GetComponent<Health>();
@@ -79,10 +79,10 @@ namespace RPG.Movement
         public void RestoreState(object state)
         {
             MoverSaveData saveData = (MoverSaveData)state;
-            GetComponent<NavMeshAgent>().enabled = false;
+            navMeshAgent.enabled = false;
             transform.position = saveData.position.ToVector();
             transform.eulerAngles = saveData.rotation.ToVector();
-            GetComponent<NavMeshAgent>().enabled = true;
+            navMeshAgent.enabled = true;
         }
     }
 }

@@ -22,7 +22,7 @@ namespace RPG.Combat
             enemyHealth = player.GetCurrentTarget();
             if (enemyHealth != null)
             {
-                healthText.text = "Enemy: " + Math.Round(enemyHealth.GetPercentHealth(), 0).ToString() + "%";
+                healthText.text = "Enemy: " + Math.Round(enemyHealth.GetCurrentHealth(), 0).ToString() + "/" + Math.Round(enemyHealth.GetMaxHealth(), 0).ToString();
             }
             else
             {

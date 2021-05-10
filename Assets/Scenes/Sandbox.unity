@@ -1697,6 +1697,12 @@ PrefabInstance:
       propertyPath: startingLevel
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1586517363271595459, guid: 7d1383968f5414b04b76739699b9b3b4,
+        type: 3}
+      propertyPath: levelUpFX
+      value: 
+      objectReference: {fileID: 3023127622207449887, guid: aeea3d4f40e5147a7a108e04d890d5b3,
+        type: 3}
     - target: {fileID: 7366161943479079676, guid: 7d1383968f5414b04b76739699b9b3b4,
         type: 3}
       propertyPath: experiencePoints

@@ -75,6 +75,8 @@
     <Compile Include="Assets/Scripts/Combat/WeaponPickup.cs" />
     <Compile Include="Assets/Scripts/Core/PersistentObjectsSpawner.cs" />
     <Compile Include="Assets/Scripts/Saving/SavingSystem.cs" />
+    <Compile Include="Assets/Scripts/Stats/LevelDisplay.cs" />
+    <Compile Include="Assets/Scripts/Stats/ExperienceDisplay.cs" />
     <Compile Include="Assets/Scripts/Control/ControlPath.cs" />
     <Compile Include="Assets/Scripts/Saving/SerializableVector3.cs" />
     <Compile Include="Assets/Scripts/Saving/SaveableEntity.cs" />
@@ -87,8 +89,8 @@
     <Compile Include="Assets/Scripts/SceneManagement/SavingWrapper.cs" />
     <Compile Include="Assets/Scripts/Combat/Projectile.cs" />
     <Compile Include="Assets/Scripts/Combat/Fighter.cs" />
-    <Compile Include="Assets/Scripts/Stats/ExperienceDisplay.cs" />
-    <Compile Include="Assets/Scripts/Stats/LevelDisplay.cs" />
+    <Compile Include="Assets/Scripts/Stats/IModifierProvider.cs" />
+    <Compile Include="Assets/Asset Packs/GameDev.tv Assets/Scripts/Utils/LazyValue.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets/Asset Packs/Synty - Polygon Student Sample/README - Usage Rights for these assets.txt" />

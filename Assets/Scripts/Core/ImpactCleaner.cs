@@ -6,6 +6,8 @@ namespace RPG.Core
 {
     public class ImpactCleaner : MonoBehaviour
     {
+        [SerializeField] GameObject objectToDestroy = null;
+
         ParticleSystem impactFX;
 
         // Start is called before the first frame update
@@ -17,9 +19,16 @@ namespace RPG.Core
         // Update is called once per frame
         void Update()
         {
-            if (impactFX.isStopped)
+            if (!impactFX.IsAlive())
             {
-                Destroy(this.gameObject);
+                if (objectToDestroy == null)
+                {
+                    Destroy(this.gameObject);
+                }
+                else
+                {
+                    Destroy(objectToDestroy);
+                }
             }
         }
     }

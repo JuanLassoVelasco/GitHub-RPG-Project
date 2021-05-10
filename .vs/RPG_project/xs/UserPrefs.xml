@@ -1,19 +1,22 @@
 ﻿<Properties StartupConfiguration="{66A2329B-3B71-69FD-425B-542C3BE64BC9}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/SceneManagement/SavingWrapper.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Stats/BaseStats.cs">
     <Files>
-      <File FileName="Assets/Scripts/Stats/BaseStats.cs" Line="24" Column="10" />
-      <File FileName="Assets/Scripts/Stats/Progression.cs" />
-      <File FileName="Assets/Scripts/Stats/Stats.cs" />
-      <File FileName="Assets/Scripts/Resources/Health.cs" />
-      <File FileName="Assets/Scripts/Resources/HealthDisplay.cs" />
-      <File FileName="Assets/Scripts/Stats/Experience.cs" />
-      <File FileName="Assets/Scripts/SceneManagement/SavingWrapper.cs" Line="41" Column="1" />
+      <File FileName="Assets/Scripts/Stats/BaseStats.cs" Line="45" Column="48" />
+      <File FileName="Assets/Scripts/Resources/Health.cs" Line="34" Column="38" />
+      <File FileName="Assets/Scripts/Combat/Fighter.cs" Line="34" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="RPG_project" expanded="True">
-            <Node name="Assets" expanded="True" selected="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Asset Packs" expanded="True">
+                <Node name="GameDev.tv Assets" expanded="True">
+                  <Node name="Scripts" expanded="True">
+                    <Node name="Utils" expanded="True" />
+                  </Node>
+                </Node>
+              </Node>
               <Node name="Scripts" expanded="True">
                 <Node name="Cinematics" expanded="True" />
                 <Node name="Combat" expanded="True" />
@@ -23,7 +26,9 @@
                 <Node name="Resources" expanded="True" />
                 <Node name="Saving" expanded="True" />
                 <Node name="SceneManagement" expanded="True" />
-                <Node name="Stats" expanded="True" />
+                <Node name="Stats" expanded="True">
+                  <Node name="BaseStats.cs" selected="True" />
+                </Node>
               </Node>
             </Node>
           </Node>
@@ -33,7 +38,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="dfc47a31-5010-48e4-bdef-6d39420cc22d" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="fefa64b7-200a-4f3e-a602-e7e372a39452" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
