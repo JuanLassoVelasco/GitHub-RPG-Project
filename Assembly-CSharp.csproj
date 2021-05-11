@@ -88,9 +88,10 @@
     <Compile Include="Assets/Scripts/Core/ActionScheduler.cs" />
     <Compile Include="Assets/Scripts/SceneManagement/SavingWrapper.cs" />
     <Compile Include="Assets/Scripts/Combat/Projectile.cs" />
+    <Compile Include="Assets/Asset Packs/GameDev.tv Assets/Scripts/Utils/LazyValue.cs" />
     <Compile Include="Assets/Scripts/Combat/Fighter.cs" />
     <Compile Include="Assets/Scripts/Stats/IModifierProvider.cs" />
-    <Compile Include="Assets/Asset Packs/GameDev.tv Assets/Scripts/Utils/LazyValue.cs" />
+    <Compile Include="Assets/Scripts/Control/IRaycastable.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets/Asset Packs/Synty - Polygon Student Sample/README - Usage Rights for these assets.txt" />

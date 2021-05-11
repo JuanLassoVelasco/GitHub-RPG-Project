@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.EventSystems;
 using RPG.Movement;
 using System;
-using RPG.Combat;
 using RPG.Resources;
 
 namespace RPG.Control
@@ -12,7 +12,6 @@ namespace RPG.Control
     public class PlayerController : MonoBehaviour
     {
 
-        Fighter fighter;
         Mover mover;
         Health playerHealth;
 
@@ -20,7 +19,8 @@ namespace RPG.Control
         {
             None,
             Movement,
-            Combat
+            Combat,
+            UI
         }
 
         [System.Serializable]
@@ -36,7 +36,6 @@ namespace RPG.Control
         // Start is called before the first frame update
         void Awake()
         {
-            fighter = GetComponent<Fighter>();
             mover = GetComponent<Mover>();
             playerHealth = GetComponent<Health>();
         }
@@ -44,32 +43,35 @@ namespace RPG.Control
         // Update is called once per frame
         void Update()
         {
-            if (playerHealth.IsDead()) return;
+            if (InteractWithUI()) return;
+            if (playerHealth.IsDead())
+            {
+                SetCursor(CursorType.None);
+                return;
+            }
 
-            if (InteractWithCombat()) return;
+            if (InteractWithComponent()) return;
             if (InteractWithMovement()) return;
 
             SetCursor(CursorType.None);
         }
 
-        private bool InteractWithCombat()
+        private bool InteractWithComponent()
         {
             RaycastHit[] hits = Physics.RaycastAll(GetMouseRay());
             foreach (RaycastHit hit in hits)
             {
-                CombatTarget target = hit.collider.GetComponentInParent<CombatTarget>();
-                if (target == null) continue;
-
-                if (target != null)
+                IRaycastable[] raycastables = hit.transform.GetComponents<IRaycastable>();
+                foreach(IRaycastable raycastable in raycastables)
                 {
-                    if (Input.GetMouseButton(0))
+                    if (raycastable.HandleRaycast(this))
                     {
-                        fighter.Attack(target.gameObject);
+                        SetCursor(CursorType.Combat);
+                        return true;
                     }
-                    SetCursor(CursorType.Combat);
-                    return true;
                 }
             }
+
             return false;
         }
 
@@ -77,6 +79,16 @@ namespace RPG.Control
         {
             SetCursor(CursorType.Movement);
             return MoveToCursor();
+        }
+
+        private bool InteractWithUI()
+        {
+            if (EventSystem.current.IsPointerOverGameObject())
+            {
+                SetCursor(CursorType.UI);
+                return true;
+            }
+            return false;
         }
 
         private void SetCursor(CursorType type)
