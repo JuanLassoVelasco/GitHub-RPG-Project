@@ -6,6 +6,7 @@ using RPG.Core;
 using RPG.Movement;
 using RPG.Resources;
 using System;
+using GameDevTV.Utils;
 
 namespace RPG.Control
 {
@@ -24,7 +25,7 @@ namespace RPG.Control
         Mover enemyMover;
         ActionScheduler actionScheduler;
 
-        Vector3 guardPosition;
+        LazyValue<Vector3> guardPosition;
         int currentWaypoint = 0;
         float timeSinceLastSawPlayer = Mathf.Infinity;
         float timeSpentAtWaypoint = 0;
@@ -36,12 +37,18 @@ namespace RPG.Control
             enemyHealth = GetComponent<Health>();
             enemyMover = GetComponent<Mover>();
             actionScheduler = GetComponent<ActionScheduler>();
+            guardPosition = new LazyValue<Vector3>(GetInitialGuardPosition);
+        }
+
+        private Vector3 GetInitialGuardPosition()
+        {
+            return transform.position;
         }
 
         // Start is called before the first frame update
         void Start()
         {
-            guardPosition = transform.position;
+            guardPosition.ForceInit();
         }
 
         // Update is called once per frame
@@ -75,7 +82,7 @@ namespace RPG.Control
 
         private void PatrolBehavior()
         {
-            Vector3 nextPostion = guardPosition;
+            Vector3 nextPostion = guardPosition.value;
 
             if (controlPath != null)
             {

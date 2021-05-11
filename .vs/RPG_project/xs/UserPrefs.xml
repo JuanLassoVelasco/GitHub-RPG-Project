@@ -1,9 +1,7 @@
 ﻿<Properties StartupConfiguration="{66A2329B-3B71-69FD-425B-542C3BE64BC9}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Stats/BaseStats.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Control/PlayerController.cs">
     <Files>
-      <File FileName="Assets/Scripts/Stats/BaseStats.cs" Line="45" Column="48" />
-      <File FileName="Assets/Scripts/Resources/Health.cs" Line="34" Column="38" />
-      <File FileName="Assets/Scripts/Combat/Fighter.cs" Line="34" Column="1" />
+      <File FileName="Assets/Scripts/Control/PlayerController.cs" Line="88" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -20,15 +18,15 @@
               <Node name="Scripts" expanded="True">
                 <Node name="Cinematics" expanded="True" />
                 <Node name="Combat" expanded="True" />
-                <Node name="Control" expanded="True" />
+                <Node name="Control" expanded="True">
+                  <Node name="PlayerController.cs" selected="True" />
+                </Node>
                 <Node name="Core" expanded="True" />
                 <Node name="Movement" expanded="True" />
                 <Node name="Resources" expanded="True" />
                 <Node name="Saving" expanded="True" />
                 <Node name="SceneManagement" expanded="True" />
-                <Node name="Stats" expanded="True">
-                  <Node name="BaseStats.cs" selected="True" />
-                </Node>
+                <Node name="Stats" expanded="True" />
               </Node>
             </Node>
           </Node>
@@ -38,7 +36,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="fefa64b7-200a-4f3e-a602-e7e372a39452" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="cd7fce74-2fad-4cc8-8673-35d11ff666dc" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
