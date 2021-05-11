@@ -92,6 +92,7 @@
     <Compile Include="Assets/Scripts/Combat/Fighter.cs" />
     <Compile Include="Assets/Scripts/Stats/IModifierProvider.cs" />
     <Compile Include="Assets/Scripts/Control/IRaycastable.cs" />
+    <Compile Include="Assets/Scripts/Control/CursorType.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets/Asset Packs/Synty - Polygon Student Sample/README - Usage Rights for these assets.txt" />

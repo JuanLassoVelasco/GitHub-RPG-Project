@@ -10,6 +10,11 @@ namespace RPG.Combat
 
     public class CombatTarget : MonoBehaviour, IRaycastable
     {
+        public CursorType GetCursorType()
+        {
+            return CursorType.Combat;
+        }
+
         public bool HandleRaycast(PlayerController callingPlayer)
         {
             if (Input.GetMouseButton(0))
