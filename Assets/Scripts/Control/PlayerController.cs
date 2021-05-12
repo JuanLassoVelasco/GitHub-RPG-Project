@@ -24,6 +24,7 @@ namespace RPG.Control
         }
 
         [SerializeField] float navMeshPointingTolerance = 0.2f;
+        [SerializeField] float maxTravelDistance = 40f;
         [SerializeField] CursorMapping[] cursorMappings = null;
 
         // Start is called before the first frame update
@@ -125,8 +126,27 @@ namespace RPG.Control
             {
                 return false;
             }
+
+            NavMeshPath path = new NavMeshPath();
+            bool hasPath = NavMesh.CalculatePath(transform.position, target, NavMesh.AllAreas, path);
+
+            if (!hasPath) return false;
+            if (path.status != NavMeshPathStatus.PathComplete) return false;
+            if (GetPathLength(path) > maxTravelDistance) return false;
             
             return targetFound;
+        }
+
+        private float GetPathLength(NavMeshPath path)
+        {
+            float pathLength = Vector3.Distance(this.transform.position, path.corners[0]);
+
+            for (int i = 1; i < path.corners.Length; i++)
+            {
+                pathLength += Vector3.Distance(path.corners[i - 1], path.corners[i]);
+            }
+
+            return pathLength;
         }
 
         private bool InteractWithUI()

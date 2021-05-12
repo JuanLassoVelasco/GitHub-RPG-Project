@@ -4,6 +4,7 @@ using RPG.Stats;
 using RPG.Core;
 using System;
 using GameDevTV.Utils;
+using UnityEngine.Events;
 
 namespace RPG.Resources
 {
@@ -12,6 +13,7 @@ namespace RPG.Resources
         
         [Range(0f, 100f)]
         [SerializeField] float percentRegenOnLevelUp = 70f;
+        [SerializeField] UnityEvent takeDamage;
 
         BaseStats baseStats;
         GameObject attacker;
@@ -93,6 +95,7 @@ namespace RPG.Resources
         public void TakeDamage(GameObject instigator, float damage)
         {
             attacker = instigator;
+            takeDamage.Invoke();
 
             if (healthPoints.value != 0)
             {

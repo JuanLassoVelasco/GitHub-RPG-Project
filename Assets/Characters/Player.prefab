@@ -31,7 +31,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bcdd8fb7648a4f6982f1e8f3771fe69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  navMeshPointingTolerance: 0.2
+  navMeshPointingTolerance: 1
+  maxTravelDistance: 60
   cursorMappings:
   - type: 1
     texture: {fileID: 2800000, guid: 6fdfcd4167ed5e7488584241bb671bb2, type: 3}

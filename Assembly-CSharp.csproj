@@ -93,6 +93,10 @@
     <Compile Include="Assets/Scripts/Stats/IModifierProvider.cs" />
     <Compile Include="Assets/Scripts/Control/IRaycastable.cs" />
     <Compile Include="Assets/Scripts/Control/CursorType.cs" />
+    <Compile Include="Assets/Scripts/Core/CameraFacing.cs" />
+    <Compile Include="Assets/Scripts/UI/DamageText/DamageText.cs" />
+    <Compile Include="Assets/Scripts/UI/DamageText/DamageTextSpawner.cs" />
+    <Compile Include="Assets/Destroyer.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets/Asset Packs/Synty - Polygon Student Sample/README - Usage Rights for these assets.txt" />
