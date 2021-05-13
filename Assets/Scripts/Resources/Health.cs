@@ -13,7 +13,13 @@ namespace RPG.Resources
         
         [Range(0f, 100f)]
         [SerializeField] float percentRegenOnLevelUp = 70f;
-        [SerializeField] UnityEvent takeDamage;
+        [SerializeField] TakeDamageEvent takeDamage;
+
+        [System.Serializable]
+        public class TakeDamageEvent : UnityEvent<float>
+        {
+
+        }
 
         BaseStats baseStats;
         GameObject attacker;
@@ -95,7 +101,7 @@ namespace RPG.Resources
         public void TakeDamage(GameObject instigator, float damage)
         {
             attacker = instigator;
-            takeDamage.Invoke();
+            takeDamage.Invoke(damage);
 
             if (healthPoints.value != 0)
             {
