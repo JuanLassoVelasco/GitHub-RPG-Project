@@ -14,11 +14,12 @@ namespace RPG.Combat
         [SerializeField] float timeBetweenAttacks = 1f;
         [SerializeField] Transform rightHandTransform = null;
         [SerializeField] Transform leftHandTransform = null;
-        [SerializeField] Weapon defaultWeapon = null;
+        [SerializeField] WeaponConfig defaultWeapon = null;
 
         Health target;
         Animator animator;
         Mover mover;
+        WeaponConfig currentWeaponConfig;
         LazyValue<Weapon> currentWeapon;
 
         float timeSinceLastAttack = Mathf.Infinity;
@@ -27,13 +28,13 @@ namespace RPG.Combat
         {
             animator = GetComponent<Animator>();
             mover = GetComponent<Mover>();
+            currentWeaponConfig = defaultWeapon;
             currentWeapon = new LazyValue<Weapon>(GetInitialWeapon);
         }
 
         private Weapon GetInitialWeapon()
         {
-            AttachWeapon(defaultWeapon);
-            return defaultWeapon;
+            return AttachWeapon(defaultWeapon);
         }
 
         private void Start()
@@ -50,7 +51,7 @@ namespace RPG.Combat
                 if (target.IsDead() == false)
                 {
                     float distance = Vector3.Distance(transform.position, target.transform.position);
-                    if (distance > currentWeapon.value.GetWeaponRange())
+                    if (distance > currentWeaponConfig.GetWeaponRange())
                     {
                         animator.SetTrigger("stopAttack");
                         mover.MoveTo(target.transform.position, 1f);
@@ -70,16 +71,16 @@ namespace RPG.Combat
             return target;
         }
 
-        public void EquipWeapon(Weapon weapon)
+        public void EquipWeapon(WeaponConfig weapon)
         {
             if (weapon == null) return;
-            currentWeapon.value = weapon;
-            AttachWeapon(weapon);
+            currentWeaponConfig = weapon;
+            currentWeapon.value = AttachWeapon(weapon);
         }
 
-        private void AttachWeapon(Weapon weapon)
+        private Weapon AttachWeapon(WeaponConfig weapon)
         {
-            weapon.Spawn(rightHandTransform, leftHandTransform, animator);
+            return weapon.Spawn(rightHandTransform, leftHandTransform, animator);
         }
 
         private void AttackBehavior()
@@ -100,9 +101,15 @@ namespace RPG.Combat
             if (target == null) return;
 
             float calculatedDamage = GetComponent<BaseStats>().GetCalculatedStat(Stat.Damage);
-            if (currentWeapon.value.HasProjectile())
+
+            if (currentWeapon.value != null)
             {
-                currentWeapon.value.LaunchProjectile(rightHandTransform, leftHandTransform, gameObject, target, calculatedDamage);
+                currentWeapon.value.OnHit();
+            }
+
+            if (currentWeaponConfig.HasProjectile())
+            {
+                currentWeaponConfig.LaunchProjectile(rightHandTransform, leftHandTransform, gameObject, target, calculatedDamage);
             }
             else
             {
@@ -132,13 +139,13 @@ namespace RPG.Combat
 
         public object CaptureState()
         {
-            return currentWeapon.value.name;
+            return currentWeaponConfig.name;
         }
 
         public void RestoreState(object state)
         {
             string weaponName = (string)state;
-            Weapon weapon = UnityEngine.Resources.Load<Weapon>(weaponName);
+            WeaponConfig weapon = UnityEngine.Resources.Load<WeaponConfig>(weaponName);
             EquipWeapon(weapon);
         }
 
@@ -146,7 +153,7 @@ namespace RPG.Combat
         {
             if (stat == Stat.Damage)
             {
-                yield return currentWeapon.value.GetWeaponDamage();
+                yield return currentWeaponConfig.GetWeaponDamage();
             }
         }
 
@@ -154,7 +161,7 @@ namespace RPG.Combat
         {
             if (stat == Stat.Damage)
             {
-                yield return currentWeapon.value.GetPercentageBonus();
+                yield return currentWeaponConfig.GetPercentageBonus();
             }
         }
     }

@@ -16,7 +16,7 @@ MonoBehaviour:
   percentageBonus: 0
   weaponRange: 10
   animatorOveride: {fileID: 22100000, guid: f6c30dcf950b6484b955c0bd251973c6, type: 2}
-  equippedPrefab: {fileID: 2987835592658481321, guid: 524dda4b779984b3081aa33d3809e9ba,
+  equippedPrefab: {fileID: -2797358169367376656, guid: 524dda4b779984b3081aa33d3809e9ba,
     type: 3}
   projectile: {fileID: 450764453255457046, guid: f470c4292f27c4c12a78bf59009edb2a,
     type: 3}

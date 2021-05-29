@@ -1,11 +1,13 @@
 ﻿<Properties StartupConfiguration="{66A2329B-3B71-69FD-425B-542C3BE64BC9}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Combat/Projectile.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Attributes/Health.cs">
     <Files>
       <File FileName="Assets/Scripts/SoundFX/AudioRandomizer.cs" Line="17" Column="58" />
-      <File FileName="Assets/Scripts/Combat/Fighter.cs" Line="17" Column="54" />
-      <File FileName="Assets/Scripts/Attributes/Health.cs" Line="124" Column="75" />
-      <File FileName="Assets/Scripts/Combat/Weapon.cs" Line="17" Column="52" />
+      <File FileName="Assets/Scripts/Combat/Fighter.cs" Line="107" Column="45" />
+      <File FileName="Assets/Scripts/Attributes/Health.cs" Line="130" Column="43" />
+      <File FileName="Assets/Scripts/Combat/Weapon.cs" Line="44" Column="27" />
       <File FileName="Assets/Scripts/Combat/Projectile.cs" Line="48" Column="1" />
+      <File FileName="Assets/Scripts/Combat/Weapon.cs" Line="14" Column="28" />
+      <File FileName="Assets/Scripts/Combat/WeaponPickup.cs" Line="44" Column="81" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -14,27 +16,15 @@
             <Node name="Assets" expanded="True">
               <Node name="Asset Packs" expanded="True">
                 <Node name="GameDev.tv Assets" expanded="True">
-                  <Node name="Scripts" expanded="True">
-                    <Node name="Utils" expanded="True" />
-                  </Node>
+                  <Node name="Scripts" expanded="True" />
                 </Node>
               </Node>
               <Node name="Scripts" expanded="True">
-                <Node name="Attributes" expanded="True" />
-                <Node name="Cinematics" expanded="True" />
-                <Node name="Combat" expanded="True">
-                  <Node name="Projectile.cs" selected="True" />
+                <Node name="Attributes" expanded="True">
+                  <Node name="Health.cs" selected="True" />
                 </Node>
-                <Node name="Control" expanded="True" />
-                <Node name="Core" expanded="True" />
-                <Node name="Movement" expanded="True" />
-                <Node name="Saving" expanded="True" />
-                <Node name="SceneManagement" expanded="True" />
-                <Node name="SoundFX" expanded="True" />
-                <Node name="Stats" expanded="True" />
-                <Node name="UI" expanded="True">
-                  <Node name="DamageText" expanded="True" />
-                </Node>
+                <Node name="Combat" expanded="True" />
+                <Node name="UI" expanded="True" />
               </Node>
             </Node>
           </Node>
@@ -44,7 +34,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="fb2f5c98-82d8-440e-8cbc-fd4a17d5b406" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="e7d43e19-6a24-4e03-83cd-2d7fdf5de5e5" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
