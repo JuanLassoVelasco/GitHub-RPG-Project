@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7313bb52a3c4843babc700988fbe8a92, type: 3}
   m_Name: FireBallSpell
   m_EditorClassIdentifier: 
-  weaponDamage: 10
+  weaponDamage: 5
   percentageBonus: 0
   weaponRange: 10
   animatorOveride: {fileID: 22100000, guid: b78349e76539644df952506bd7f1f17a, type: 2}

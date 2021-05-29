@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7313bb52a3c4843babc700988fbe8a92, type: 3}
   m_Name: Bow
   m_EditorClassIdentifier: 
-  weaponDamage: 8
+  weaponDamage: 3
   percentageBonus: 0
   weaponRange: 10
   animatorOveride: {fileID: 22100000, guid: f6c30dcf950b6484b955c0bd251973c6, type: 2}

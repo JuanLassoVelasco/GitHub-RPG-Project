@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.AI;
-using RPG.Saving;
+using RPG.Control;
 
 namespace RPG.SceneManagement
 {
@@ -41,9 +41,13 @@ namespace RPG.SceneManagement
 
             SavingWrapper savingWrapper = FindObjectOfType<SavingWrapper>();
 
+            ControlEnabled(false);
+
             savingWrapper.Save();
 
             yield return SceneManager.LoadSceneAsync(sceneIndexToLoad);
+            // disable control from new player loaded in scene
+            ControlEnabled(false);
 
             savingWrapper.Load();
 
@@ -55,6 +59,8 @@ namespace RPG.SceneManagement
             yield return new WaitForSeconds(fadeOutWait);
 
             yield return fader.FadeIn(fadeInTime);
+
+            ControlEnabled(true);
 
             Destroy(gameObject);
         }
@@ -76,6 +82,12 @@ namespace RPG.SceneManagement
             }
 
             return null;
+        }
+
+        private void ControlEnabled(bool isEnabled)
+        {
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            player.GetComponent<PlayerController>().enabled = isEnabled;
         }
     }
 }

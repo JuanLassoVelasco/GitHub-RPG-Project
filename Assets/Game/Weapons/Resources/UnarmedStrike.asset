@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7313bb52a3c4843babc700988fbe8a92, type: 3}
   m_Name: UnarmedStrike
   m_EditorClassIdentifier: 
-  weaponDamage: 5
+  weaponDamage: 2
   percentageBonus: 0
   weaponRange: 2
   animatorOveride: {fileID: 0}

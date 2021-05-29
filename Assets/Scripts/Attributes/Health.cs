@@ -14,6 +14,7 @@ namespace RPG.Attributes
         [Range(0f, 100f)]
         [SerializeField] float percentRegenOnLevelUp = 70f;
         [SerializeField] TakeDamageEvent takeDamage;
+        [SerializeField] UnityEvent onDie;
 
         [System.Serializable]
         public class TakeDamageEvent : UnityEvent<float>
@@ -22,7 +23,6 @@ namespace RPG.Attributes
         }
 
         BaseStats baseStats;
-        GameObject attacker;
         bool isDead = false;
         LazyValue<float> healthPoints;
 
@@ -100,12 +100,17 @@ namespace RPG.Attributes
 
         public void TakeDamage(GameObject instigator, float damage)
         {
-            attacker = instigator;
-            takeDamage.Invoke(damage);
+            healthPoints.value = Mathf.Max(healthPoints.value - damage, 0);
 
-            if (healthPoints.value != 0)
+            if (healthPoints.value <= 0)
             {
-                healthPoints.value = Mathf.Max(healthPoints.value - damage, 0);
+                Die();
+                AwardExperience(instigator);
+                onDie.Invoke();
+            }
+            else
+            {
+                takeDamage.Invoke(damage);
             }
         }
 
@@ -117,7 +122,6 @@ namespace RPG.Attributes
                 GetComponent<Animator>().SetTrigger("die");
                 GetComponent<ActionScheduler>().CancelCurrentAction();
                 transform.GetComponent<CapsuleCollider>().enabled = false;
-                AwardExperience(attacker);
             }
         }
 

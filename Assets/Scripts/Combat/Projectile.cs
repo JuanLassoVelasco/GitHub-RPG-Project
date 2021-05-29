@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using RPG.Attributes;
+using UnityEngine.Events;
 
 namespace RPG.Combat
 {
@@ -13,6 +14,7 @@ namespace RPG.Combat
         [SerializeField] float lifeTimeAfterDestroy = 1f;
         [SerializeField] float maxLifeTime = 6f;
         [SerializeField] bool isHoming = false;
+        [SerializeField] UnityEvent onProjectileHit;
 
         Health target;
         GameObject instigator;
@@ -41,6 +43,9 @@ namespace RPG.Combat
         {
             if (other.GetComponent<Health>() != target) return;
             target.TakeDamage(instigator, damage);
+
+            onProjectileHit.Invoke();
+
             if (hitFX != null)
             {
                 Instantiate(hitFX, this.transform.position, Quaternion.identity);
