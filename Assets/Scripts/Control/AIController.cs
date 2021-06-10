@@ -14,6 +14,7 @@ namespace RPG.Control
     {
         [SerializeField] float chaseDistance = 5f;
         [SerializeField] float susWaitTime = 5f;
+        [SerializeField] float agroCooldownTime = 5f;
         [SerializeField] ControlPath controlPath;
         [SerializeField] float waypointTolerance = 1f;
         [SerializeField] float waypointDwellTime = 5f;
@@ -28,6 +29,7 @@ namespace RPG.Control
         LazyValue<Vector3> guardPosition;
         int currentWaypoint = 0;
         float timeSinceLastSawPlayer = Mathf.Infinity;
+        float timeSinceLastAgroed = Mathf.Infinity;
         float timeSpentAtWaypoint = 0;
 
         private void Awake()
@@ -54,16 +56,29 @@ namespace RPG.Control
         // Update is called once per frame
         void Update()
         {
-            float distanceFromPlayer = Vector3.Distance(player.transform.position, transform.position);
+
 
             if (enemyHealth.IsDead()) return;
 
-            AttackPlayer(distanceFromPlayer);
+            AttackPlayer();
+            UpdateTimers();
         }
 
-        private void AttackPlayer(float distanceToPlayer)
+        private void UpdateTimers()
         {
-            if (distanceToPlayer < chaseDistance)
+            timeSinceLastAgroed += Time.deltaTime;
+            timeSinceLastSawPlayer += Time.deltaTime;
+            timeSpentAtWaypoint += Time.deltaTime;
+        }
+
+        public void Aggrevate()
+        {
+            timeSinceLastAgroed = 0;
+        }
+
+        private void AttackPlayer()
+        {
+            if (IsAggrevated())
             {
                 timeSinceLastSawPlayer = 0;
                 enemyFighter.Attack(player);
@@ -76,8 +91,13 @@ namespace RPG.Control
             {
                 PatrolBehavior();
             }
+        }
 
-            timeSinceLastSawPlayer += Time.deltaTime;
+        private bool IsAggrevated()
+        {
+            float distanceToPlayer = Vector3.Distance(player.transform.position, transform.position);
+
+            return distanceToPlayer < chaseDistance || timeSinceLastAgroed < agroCooldownTime;
         }
 
         private void PatrolBehavior()
@@ -93,7 +113,6 @@ namespace RPG.Control
                         CycleWaypoint();
                         timeSpentAtWaypoint = 0;
                     }
-                    timeSpentAtWaypoint += Time.deltaTime;
                 }
                 nextPostion = GetCurrentWaypoint();
             }
