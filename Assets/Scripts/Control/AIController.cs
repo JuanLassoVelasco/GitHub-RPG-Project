@@ -19,6 +19,7 @@ namespace RPG.Control
         [SerializeField] float waypointTolerance = 1f;
         [SerializeField] float waypointDwellTime = 5f;
         [SerializeField] float patrolSpeedFraction = 0.2f;
+        [SerializeField] float shoutDistance = 5f;
 
         GameObject player;
         Fighter enemyFighter;
@@ -82,6 +83,7 @@ namespace RPG.Control
             {
                 timeSinceLastSawPlayer = 0;
                 enemyFighter.Attack(player);
+                AggrevateNearbyEnemies();
             }
             else if (timeSinceLastSawPlayer < susWaitTime)
             {
@@ -90,6 +92,20 @@ namespace RPG.Control
             else
             {
                 PatrolBehavior();
+            }
+        }
+
+        private void AggrevateNearbyEnemies()
+        {
+            RaycastHit[] hits = Physics.SphereCastAll(transform.position, shoutDistance, Vector3.up);
+
+            foreach (RaycastHit hit in hits)
+            {
+                AIController enemy = hit.transform.GetComponent<AIController>();
+
+                if (enemy == null) continue;
+
+                enemy.Aggrevate();
             }
         }
 

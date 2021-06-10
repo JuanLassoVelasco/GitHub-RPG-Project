@@ -25,6 +25,7 @@ namespace RPG.Control
 
         [SerializeField] float navMeshPointingTolerance = 0.2f;
         [SerializeField] float maxTravelDistance = 40f;
+        [SerializeField] float rayCastRadius = 1f;
         [SerializeField] CursorMapping[] cursorMappings = null;
 
         // Start is called before the first frame update
@@ -71,7 +72,7 @@ namespace RPG.Control
 
         private RaycastHit[] RaycastAllSorted()
         {
-            RaycastHit[] hits = Physics.RaycastAll(GetMouseRay());
+            RaycastHit[] hits = Physics.SphereCastAll(GetMouseRay(), rayCastRadius);
             float[] distances = new float[hits.Length];
 
             for (int i = 0; i < distances.Length; i++)
